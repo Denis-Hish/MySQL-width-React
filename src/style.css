@@ -23,3 +23,8 @@ code {
    width: 80%;
    float: left;
 }
+
+.error-message {
+   display: block;
+   height: 21px;
+}
