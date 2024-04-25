@@ -39,13 +39,13 @@ const UserList = () => {
                            <td>male</td>
                            <td className='text-center'>
                               <Link
-                                 to='/userEdit'
+                                 to='/useredit'
                                  className='btn btn-outline-success me-3'
                               >
                                  <i className='bi bi-pencil'></i>
                               </Link>
                               <Link
-                                 to='/userDelete'
+                                 to='/userdelete'
                                  className='btn btn-outline-danger'
                               >
                                  <i className='bi bi-trash'></i>
@@ -61,13 +61,13 @@ const UserList = () => {
                            <td>male</td>
                            <td className='text-center'>
                               <Link
-                                 to='/userEdit'
+                                 to='/useredit'
                                  className='btn btn-outline-success me-3'
                               >
                                  <i className='bi bi-pencil'></i>
                               </Link>
                               <Link
-                                 to='/userDelete'
+                                 to='/userdelete'
                                  className='btn btn-outline-danger'
                               >
                                  <i className='bi bi-trash'></i>

@@ -28,3 +28,18 @@ code {
    display: block;
    height: 21px;
 }
+
+table {
+   tbody {
+      .btn-hovered {
+         opacity: 0;
+      }
+      tr {
+         &:hover {
+            .btn-hovered {
+               opacity: 1;
+            }
+         }
+      }
+   }
+}

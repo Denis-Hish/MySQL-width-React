@@ -5,6 +5,7 @@ import Header from './components/common/Header';
 import Home from './components/Home';
 import UserList from './components/UserList';
 import UserRegistration from './components/UserRegistration';
+import Patients from './components/Patients';
 // import Footer from './components/common/Footer';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                <Route path='/' element={<Home />} />
                <Route path='/userlist' element={<UserList />} />
                <Route path='/userregistration' element={<UserRegistration />} />
+               <Route path='/patients' element={<Patients />} />
             </Routes>
          </div>
 
