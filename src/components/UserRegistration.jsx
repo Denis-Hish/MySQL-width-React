@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const UserRegistration = () => {
+   const navigate = useNavigate();
    const {
       register,
       formState: { errors },
@@ -10,6 +13,7 @@ const UserRegistration = () => {
 
    const [countryData, setCountryData] = useState([]);
    const [stateData, setStateData] = useState([]);
+   const [message, setMessage] = useState('');
 
    useEffect(() => {
       const getCountry = async () => {
@@ -32,6 +36,21 @@ const UserRegistration = () => {
 
    const onSubmit = (data) => {
       console.log(data);
+
+      const res = axios
+         .post('http://localhost:8000/api/adduser', data)
+         .then((responce) => {
+            setMessage(responce.data);
+         });
+
+      if (!message) {
+         setMessage(res.data);
+         setTimeout(() => {
+            navigate('/userlist');
+         }, 2000);
+      } else {
+         setMessage('Some error occured');
+      }
    };
 
    return (
@@ -40,6 +59,7 @@ const UserRegistration = () => {
             <div className='row'>
                <div className='col-md-12'>
                   <h5 className='mt-2'>User registration form</h5>
+                  <p className='text-success'>{message}</p>
                   <form onSubmit={handleSubmit(onSubmit)}>
                      <div className='row'>
                         <div className='col-md-6'>

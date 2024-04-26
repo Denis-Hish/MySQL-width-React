@@ -12,6 +12,9 @@ app.use(cors());
 
 app.use('/', RouterPath);
 app.use('/api/user', RouterPath);
+app.use('/api/country', RouterPath);
+app.use('/api/state/:id', RouterPath);
+app.use('/api/adduser', RouterPath);
 
 app.listen(port, () => {
    console.log(`Server running on port: ${port}`);
