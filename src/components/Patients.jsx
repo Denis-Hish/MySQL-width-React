@@ -57,78 +57,74 @@ const Patients = () => {
    return (
       <React.Fragment>
          <div className='container'>
-            <div className='mt-3'>
-               <h2 className='text-center'>Patients list</h2>
-               <div className='inputs-date d-flex align-items-center mt-4 mb-3'>
-                  <span className='me-2'>From</span>
-                  <input
-                     type='text'
-                     id='input-name'
-                     className='form-control w-auto'
-                     value={nameFilter}
-                     onChange={(e) => setNameFilter(e.target.value)}
-                  />
-                  <span className='ms-5 me-2'>From</span>
-                  <input
-                     type='date'
-                     id='input-date-from'
-                     className='form-control w-auto'
-                     value={dateFilterFrom}
-                     onChange={(e) => setDateFilterFrom(e.target.value)}
-                  />
-                  <span className='ms-5 me-2'>To</span>
-                  <input
-                     type='date'
-                     id='input-date-to'
-                     className='form-control w-auto'
-                     value={dateFilterTo}
-                     onChange={(e) => setDateFilterTo(e.target.value)}
-                  />
-                  <span className='ms-5 me-2'>
-                     Unique: <strong>{uniqueUsersCount}</strong>
-                  </span>
-               </div>
+            <h2 className='text-center mt-3'>Patients list</h2>
+            <div className='inputs-date d-flex align-items-center mt-4 mb-3'>
+               <span className='me-2'>From</span>
+               <input
+                  type='text'
+                  id='input-name'
+                  className='form-control w-auto'
+                  value={nameFilter}
+                  onChange={(e) => setNameFilter(e.target.value)}
+               />
+               <span className='ms-5 me-2'>From</span>
+               <input
+                  type='date'
+                  id='input-date-from'
+                  className='form-control w-auto'
+                  value={dateFilterFrom}
+                  onChange={(e) => setDateFilterFrom(e.target.value)}
+               />
+               <span className='ms-5 me-2'>To</span>
+               <input
+                  type='date'
+                  id='input-date-to'
+                  className='form-control w-auto'
+                  value={dateFilterTo}
+                  onChange={(e) => setDateFilterTo(e.target.value)}
+               />
+               <span className='ms-5 me-2'>
+                  Unique: <strong>{uniqueUsersCount}</strong>
+               </span>
+            </div>
 
-               <div className='row'>
-                  <div className='col-md-12'>
-                     <table className='table table-bordered table-hover align-middle'>
-                        <thead className='table-info'>
-                           <tr className='text-center'>
-                              <th>Id</th>
-                              <th>Name</th>
-                              <th>Date</th>
-                              <th>Action</th>
+            <div className='row'>
+               <div className='col-md-12'>
+                  <table className='table table-bordered table-hover align-middle'>
+                     <thead className='table-info'>
+                        <tr className='text-center'>
+                           <th>Id</th>
+                           <th>Name</th>
+                           <th>Date</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {filteredData.map((useritem, index) => (
+                           <tr key={index}>
+                              <td>{useritem.id}</td>
+                              <td>{useritem.name}</td>
+                              <td>
+                                 {new Date(useritem.date).toLocaleDateString()}
+                              </td>
+                              <td className='text-center'>
+                                 <Link
+                                    to='patientedit'
+                                    className='btn btn-outline-success btn-hovered me-3'
+                                 >
+                                    <i className='bi bi-pencil'></i>
+                                 </Link>
+                                 <Link
+                                    to='patientdelete'
+                                    className='btn btn-outline-danger btn-hovered'
+                                 >
+                                    <i className='bi bi-trash'></i>
+                                 </Link>
+                              </td>
                            </tr>
-                        </thead>
-                        <tbody>
-                           {filteredData.map((useritem, index) => (
-                              <tr key={index}>
-                                 <td>{useritem.id}</td>
-                                 <td>{useritem.name}</td>
-                                 <td>
-                                    {new Date(
-                                       useritem.date
-                                    ).toLocaleDateString()}
-                                 </td>
-                                 <td className='text-center'>
-                                    <Link
-                                       to='patientedit'
-                                       className='btn btn-outline-success btn-hovered me-3'
-                                    >
-                                       <i className='bi bi-pencil'></i>
-                                    </Link>
-                                    <Link
-                                       to='patientdelete'
-                                       className='btn btn-outline-danger btn-hovered'
-                                    >
-                                       <i className='bi bi-trash'></i>
-                                    </Link>
-                                 </td>
-                              </tr>
-                           ))}
-                        </tbody>
-                     </table>
-                  </div>
+                        ))}
+                     </tbody>
+                  </table>
                </div>
             </div>
          </div>
