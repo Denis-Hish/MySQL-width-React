@@ -74,7 +74,7 @@ const UserList = () => {
                                           <i className='bi bi-pencil'></i>
                                        </Link>
                                        <Link
-                                          to='/userdelete'
+                                          to={`/userdelete/${uData.userid}`}
                                           className='btn btn-outline-danger'
                                        >
                                           <i className='bi bi-trash'></i>
@@ -88,7 +88,7 @@ const UserList = () => {
                   </div>
                   <div className='d-grid d-md-flex justify-content-md-end mb-3'>
                      <button
-                        className='btn btn-outline-primary'
+                        className='btn btn-outline-secondary'
                         onClick={generatePDF}
                      >
                         <i className='bi bi-file-pdf me-2'></i>

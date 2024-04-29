@@ -41,17 +41,24 @@ const UserRegistration = () => {
          .post('http://localhost:8000/api/useradd', data)
          .then((responce) => {
             setMessage(responce.data);
+            setTimeout(() => {
+               navigate('/userlist');
+            }, 10000);
+         })
+         .catch((error) => {
+            console.error('Error adding user:', error);
+            setMessage('Some error occurred');
          });
 
-      if (!message) {
-         setMessage(res.data);
+      // if (!message) {
+      //    setMessage(res.data);
 
-         setTimeout(() => {
-            navigate('/userlist');
-         }, 10000);
-      } else {
-         setMessage('Some error occurred');
-      }
+      //    setTimeout(() => {
+      //       navigate('/userlist');
+      //    }, 10000);
+      // } else {
+      //    setMessage('Some error occurred');
+      // }
    };
 
    return (
@@ -59,7 +66,7 @@ const UserRegistration = () => {
          <div className='container'>
             <div className='row'>
                <div className='col-md-12'>
-                  <h5 className='mt-2'>User registration form</h5>
+                  <h2 className='text-center mt-2'>User registration form</h2>
                   <p className='text-success error-message mb-0'>{message}</p>
                   <form onSubmit={handleSubmit(onSubmit)}>
                      <div className='row'>
