@@ -59,6 +59,8 @@ const UserEdit = () => {
          });
    };
 
+   //TODO: изменить value на defaultValue
+
    return (
       <div className='container'>
          <h2 className='text-center mt-3'>Edit User</h2>
@@ -74,7 +76,7 @@ const UserEdit = () => {
                         className='form-control'
                         id='nameId'
                         type='text'
-                        value={userData.name}
+                        defaultValue={userData.name}
                         onChange={handleInputChange}
                         {...register('name', {
                            required: true,
