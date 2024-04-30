@@ -10,17 +10,6 @@ Router.get('/', (req, res) => {
    res.send(userData);
 });
 
-// Получение всех пользователей 'Star Wars'
-Router.get('/api/user', (req, res) => {
-   sqlDbConnect.query('SELECT * FROM users', (err, rows) => {
-      if (!err) {
-         res.send(rows);
-      } else {
-         console.log(err);
-      }
-   });
-});
-
 // Получение страны
 Router.get('/api/country', (req, res) => {
    sqlDbConnect.query('SELECT * FROM country', (err, rows) => {
@@ -103,6 +92,34 @@ Router.get('/api/useredit/:id', (req, res) => {
       } else {
          console.log(err);
          res.status(500).send('Internal server error');
+      }
+   });
+});
+
+/* Patients */
+// Получение всех пациентов
+Router.get('/api/patients', (req, res) => {
+   sqlDbConnect.query('SELECT * FROM users', (err, rows) => {
+      if (!err) {
+         res.send(rows);
+      } else {
+         console.log(err);
+      }
+   });
+});
+
+// Добавление нового пациента
+Router.post('/api/patientadd', (req, res) => {
+   const name = req.body.name;
+   const date = req.body.date;
+
+   var sql = `INSERT INTO users (name, date) VALUES ('${name}', '${date}')`;
+
+   sqlDbConnect.query(sql, (err, result) => {
+      if (!err) {
+         res.status(200).json('Patient inserted successfully');
+      } else {
+         console.log(err);
       }
    });
 });

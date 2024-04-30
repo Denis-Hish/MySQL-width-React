@@ -59,8 +59,6 @@ const UserEdit = () => {
          });
    };
 
-   //TODO: изменить value на defaultValue
-
    return (
       <div className='container'>
          <h2 className='text-center mt-3'>Edit User</h2>
@@ -98,7 +96,7 @@ const UserEdit = () => {
                         className='form-control'
                         id='usernameId'
                         type='text'
-                        value={userData.username}
+                        defaultValue={userData.username}
                         {...register('username', {
                            required: true,
                            pattern: /^[a-zA-Z0-9_]+$/i,
@@ -121,7 +119,7 @@ const UserEdit = () => {
                         className='form-control'
                         id='emailId'
                         type='text'
-                        value={userData.email}
+                        defaultValue={userData.email}
                         {...register('email', {
                            required: true,
                            pattern:
@@ -146,7 +144,7 @@ const UserEdit = () => {
                         className='form-control'
                         id='phoneId'
                         type='number'
-                        value={userData.phoneno}
+                        defaultValue={userData.phoneno}
                         {...register('phoneno', {
                            required: true,
                            minLength: 6,
@@ -176,7 +174,7 @@ const UserEdit = () => {
                         {...register('countryid', {
                            required: true,
                         })}
-                        value={userData.countryid}
+                        defaultValue={userData.countryid}
                      >
                         <option value={userData.countryid}>
                            {userData.countryid}
@@ -197,7 +195,7 @@ const UserEdit = () => {
                         {...register('stateid', {
                            required: true,
                         })}
-                        value={userData.stateid}
+                        defaultValue={userData.stateid}
                      >
                         <option value={userData.stateid}>
                            {userData.stateid}

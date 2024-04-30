@@ -11,13 +11,15 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/', RouterPath);
-app.use('/api/user', RouterPath);
 app.use('/api/country', RouterPath);
 app.use('/api/state/:id', RouterPath);
 app.use('/api/useradd', RouterPath);
 app.use('/api/userregisterdata', RouterPath);
 app.use('/api/useredit/:id', RouterPath);
 app.use('/api/userdelete', RouterPath);
+
+app.use('/api/patients', RouterPath);
+app.use('/api/patientadd', RouterPath);
 
 app.listen(port, () => {
    console.log(`Server running on port: ${port}`);

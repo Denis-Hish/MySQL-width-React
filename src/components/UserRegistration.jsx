@@ -49,16 +49,6 @@ const UserRegistration = () => {
             console.error('Error adding user:', error);
             setMessage('Some error occurred');
          });
-
-      // if (!message) {
-      //    setMessage(res.data);
-
-      //    setTimeout(() => {
-      //       navigate('/userlist');
-      //    }, 10000);
-      // } else {
-      //    setMessage('Some error occurred');
-      // }
    };
 
    return (

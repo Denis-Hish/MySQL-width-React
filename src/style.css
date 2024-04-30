@@ -29,7 +29,7 @@ code {
    height: 21px;
 }
 
-table {
+/* table {
    tbody {
       .btn-hovered {
          opacity: 0;
@@ -42,7 +42,7 @@ table {
          }
       }
    }
-}
+} */
 
 @media print {
    .not-print {
