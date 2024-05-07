@@ -6,6 +6,7 @@ import Home from './components/Home';
 import UserList from './components/UserList';
 import UserRegistration from './components/UserRegistration';
 import Patients from './components/Patients';
+import UserEdit from './components/UserEdit';
 // import Footer from './components/common/Footer';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                <Route path='/' element={<Home />} />
                <Route path='/userlist' element={<UserList />} />
                <Route path='/userregistration' element={<UserRegistration />} />
+               <Route path='/useredit/:id' element={<UserEdit />} />
                <Route path='/patients' element={<Patients />} />
             </Routes>
          </div>
