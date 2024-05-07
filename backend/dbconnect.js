@@ -1,7 +1,7 @@
 const sql = require('mysql2');
 
 const sqlconnect = sql.createConnection({
-   host: 'localhost',
+   host: 'MySQL-8.2',
    user: 'root',
    password: '',
    database: 'react_mysql',
