@@ -12,7 +12,7 @@ Router.get('/', (req, res) => {
 
 // Получение страны
 Router.get('/api/country', (req, res) => {
-   sqlDbConnect.query('SELECT * FROM country', (err, rows) => {
+   sqlDbConnect.query('SELECT * FROM tbl_country', (err, rows) => {
       if (!err) {
          res.send(rows);
       } else {
@@ -24,7 +24,7 @@ Router.get('/api/country', (req, res) => {
 // Получение региона
 Router.get('/api/state/:id', (req, res) => {
    sqlDbConnect.query(
-      "SELECT * FROM state WHERE countryid= '" + req.params.id + "'",
+      "SELECT * FROM tbl_state WHERE countryid= '" + req.params.id + "'",
       (err, rows) => {
          if (!err) {
             res.send(rows);
@@ -64,8 +64,8 @@ Router.post('/api/useradd', (req, res) => {
 // Вывод на экран всех пользователей (данные с нескольких таблиц)
 Router.get('/api/userregisterdata', (req, res) => {
    var sql = `SELECT ur.userid, ur.name, ur.username, ur.email, ur.phoneno, ur.gender, ur.address1, ur.status, c.name as countryname, s.state_name FROM user_registration as ur
-   join country as c on c.id = ur.countryid
-   join state as s on s.state_id = ur.stateid
+   join tbl_country as c on c.id = ur.countryid
+   join tbl_state as s on s.state_id = ur.stateid
    WHERE ur.status = 1`;
 
    sqlDbConnect.query(sql, (err, row) => {
@@ -99,7 +99,7 @@ Router.get('/api/useredit/:id', (req, res) => {
 /* Patients */
 // Получение всех пациентов
 Router.get('/api/patients', (req, res) => {
-   sqlDbConnect.query('SELECT * FROM users', (err, rows) => {
+   sqlDbConnect.query('SELECT * FROM patients', (err, rows) => {
       if (!err) {
          res.send(rows);
       } else {
@@ -113,7 +113,7 @@ Router.post('/api/patientadd', (req, res) => {
    const name = req.body.name;
    const date = req.body.date;
 
-   var sql = `INSERT INTO users (name, date) VALUES ('${name}', '${date}')`;
+   var sql = `INSERT INTO patients (name, date) VALUES ('${name}', '${date}')`;
 
    sqlDbConnect.query(sql, (err, result) => {
       if (!err) {

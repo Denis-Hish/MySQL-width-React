@@ -23,5 +23,5 @@ app.use('/api/patientadd', RouterPath);
 
 app.listen(port, () => {
    console.log(`Server running on port: ${port}`);
-   console.log(`http://localhost:${port}`);
+   console.log(`Link: http://localhost:${port}`);
 });
